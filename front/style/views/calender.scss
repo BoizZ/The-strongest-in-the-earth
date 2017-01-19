@@ -1,0 +1,20 @@
+.calender-info {
+  li {
+    margin-bottom: 5px;
+    &.warning {
+      color: #f39c12;
+    }
+    &.success {
+      color: #27ae60;
+    }
+    &.info {
+      color: #2980b9;
+    }
+    &.holiday {
+      color: #c0392b;
+    }
+    &.important {
+      color: #8e44ad;
+    }
+  }
+}
