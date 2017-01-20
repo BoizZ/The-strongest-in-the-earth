@@ -2,9 +2,9 @@ const Koa = require('koa')
 const app = new Koa()
 const router = require('koa-router')()
 const views = require('koa-views')
-const co = require('co')
 const convert = require('koa-convert')
 const bodyparse = require('koa-bodyparser')()
+const logger = require('koa-logger')
 
 const index = require('./app/router')
 
@@ -24,5 +24,10 @@ app.use(async (ctx, next) => {
 router.use('/', index.routes(), index.allowedMethods())
 
 app.use(router.routes(), router.allowedMethods())
+
+app.on('error', function(err, ctx){
+  console.log(err)
+  logger.error('server error', err, ctx);
+})
 
 module.exports = app
